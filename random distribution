@@ -1,0 +1,27 @@
+import random
+
+def random_from_list(my_list):
+    """Generates a random number from a specific list of integers.
+
+    Args:
+        my_list: A list of integers.
+
+    Returns:
+        A random integer chosen from the list, or None if the list is empty.
+    """
+    if not my_list:  # Check if the list is empty
+        return None
+    return random.choice(my_list)
+
+# Your list of numbers:
+my_numbers = [10, 396, 122, 751, 279, 500, 520, 759, 714, 875, 600, 953, 101, 358, 29, 365, 162, 686, 370, 887, 464, 948, 678, 481, 43, 704, 814, 39, 699, 75, 693, 989, 982, 321, 724, 732, 880, 193, 884, 57, 731, 61, 135, 833, 671, 692, 200, 754, 540, 660, 353, 482, 398, 984, 977, 705, 767, 326, 120, 554, 695, 9, 861, 603, 156, 427, 883, 168, 954, 768, 490, 725, 45, 38, 314, 507, 40, 918, 387, 418]
+
+# Generate and print a random number from the list:
+random_number = random_from_list(my_numbers)
+print(random_number)
+
+####
+# If you want to generate multiple random numbers:
+for _ in range(10):  # Example: generate 10 random numbers
+    random_number = random_from_list(my_numbers)
+    print(random_number)
