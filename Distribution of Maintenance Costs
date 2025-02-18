@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
+
+# Data provided directly in the code
+data = [4646, 1072, 9394, 1078, 1008, 5329, 4794, 3952, 3742, 4376, 4832, 5160, 1955, 2775, 5352, 3065, 3143, 1569, 7766, 3743, 2540, 4342, 3361, 3097, 8263, 4218, 2028, 5821, 9069, 3011, 9193, 4795, 505, 2732, 3754, 4640, 8410, 5922, 4364, 3190, 3213, 4139, 3560, 3920, 6733, 3770, 5168, 7380, 3656, 6213, 4279, 10575, 4752, 3809, 3769, 2152, 2985, 4563, 4723, 1826, 1061, 3527, 9669, 2116, 6212, 6927, 1881, 7004, 5284, 3173, 10133, 2356, 3124, 5976, 5408, 3690, 9573, 2470, 6863, 4513]
+
+mean = np.mean(data)  # Calculate mean
+std_dev = np.std(data)  # Calculate standard deviation
+
+# Plotting the histogram
+plt.figure(figsize=(10, 6))
+plt.hist(data, bins=20, alpha=0.7, label="Maintenance Cost Distribution", density=True, color="skyblue")
+
+# Plotting the normal distribution curve
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = stats.norm.pdf(x, mean, std_dev)
+plt.plot(x, p, 'k', linewidth=2, label="Normal Distribution (Fit)")
+
+plt.title("Distribution of Maintenance Costs")
+plt.xlabel("Maintenance Cost")
+plt.ylabel("Frequency/Probability Density")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+print(f"Mean of data: {mean}")
+print(f"Standard Deviation of data: {std_dev}")
