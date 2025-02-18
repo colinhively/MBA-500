@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
+
+# Data provided directly in the code
+data = [1072, 5922, 3920, 6733, 4752, 6212, 7004, 5408]
+
+mean = np.mean(data)  # Calculate mean
+std_dev = np.std(data)  # Calculate standard deviation
+
+# Plotting the histogram
+plt.figure(figsize=(10, 6))
+plt.hist(data, bins=20, alpha=0.7, label="Maintenance Cost Distribution", density=True, color="skyblue")
+
+# Plotting the normal distribution curve
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = stats.norm.pdf(x, mean, std_dev)
+plt.plot(x, p, 'k', linewidth=2, label="Normal Distribution (Fit)")
+
+plt.title("Distribution of Thompson Maintenance Costs")
+plt.xlabel("Maintenance Cost")
+plt.ylabel("Frequency/Probability Density")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+print(f"Mean of data: {mean}")
+print(f"Standard Deviation of data: {std_dev}")
